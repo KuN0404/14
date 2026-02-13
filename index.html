@@ -167,6 +167,18 @@
     .dot:hover:not(.active) {
       background: rgba(168, 85, 247, 0.5);
     }
+    .dot.locked {
+      background: rgba(168, 85, 247, 0.08);
+      cursor: not-allowed;
+      position: relative;
+    }
+    .dot.locked::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 1px dashed rgba(168, 85, 247, 0.2);
+    }
 
     /* ===== BUTTONS ===== */
     .nav-btn {
@@ -361,9 +373,54 @@
   <main id="slides-container" class="relative w-full h-full z-10">
 
     <!-- ╔══════════════════════════════════════╗ -->
-    <!-- ║          SLIDE 0: WELCOME            ║ -->
+    <!-- ║     SLIDE 0: COUNTDOWN (GATE)        ║ -->
     <!-- ╚══════════════════════════════════════╝ -->
     <div class="slide active" data-slide="0">
+      <div class="slide-content text-center px-6 max-w-3xl mx-auto">
+        <p class="text-accent-400/60 text-sm uppercase tracking-widest mb-3">⏳ Hitung Mundur</p>
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold gradient-text mb-3">
+          Hari Spesial Nissa
+        </h2>
+        <p class="text-accent-200/40 mb-10">14 Februari 2026 — Birthday & Valentine's Day</p>
+
+        <div class="grid grid-cols-4 gap-3 sm:gap-5 max-w-xl mx-auto mb-8">
+          <div class="cd-box rounded-2xl p-4 sm:p-6">
+            <div id="cd-days" class="text-3xl sm:text-4xl md:text-5xl font-bold text-accent-300 font-display">00</div>
+            <div class="text-xs text-accent-300/50 mt-1 uppercase tracking-widest">Hari</div>
+          </div>
+          <div class="cd-box rounded-2xl p-4 sm:p-6">
+            <div id="cd-hours" class="text-3xl sm:text-4xl md:text-5xl font-bold text-accent-300 font-display">00</div>
+            <div class="text-xs text-accent-300/50 mt-1 uppercase tracking-widest">Jam</div>
+          </div>
+          <div class="cd-box rounded-2xl p-4 sm:p-6">
+            <div id="cd-minutes" class="text-3xl sm:text-4xl md:text-5xl font-bold text-accent-300 font-display">00</div>
+            <div class="text-xs text-accent-300/50 mt-1 uppercase tracking-widest">Menit</div>
+          </div>
+          <div class="cd-box rounded-2xl p-4 sm:p-6">
+            <div id="cd-seconds" class="text-3xl sm:text-4xl md:text-5xl font-bold text-accent-300 font-display">00</div>
+            <div class="text-xs text-accent-300/50 mt-1 uppercase tracking-widest">Detik</div>
+          </div>
+        </div>
+
+        <!-- Celebration (shown when countdown ends) -->
+        <div id="cd-celebration" class="hidden mb-6">
+          <p class="text-2xl font-script text-accent-300">🎉 Selamat Hari Spesial! 🎉</p>
+        </div>
+
+        <!-- Lock Message -->
+        <div id="cd-locked" class="mt-4">
+          <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass text-sm text-accent-300/60">
+            <span>🔒</span>
+            <span>Konten akan terbuka saat hari spesial tiba</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ╔══════════════════════════════════════╗ -->
+    <!-- ║          SLIDE 1: WELCOME            ║ -->
+    <!-- ╚══════════════════════════════════════╝ -->
+    <div class="slide" data-slide="1">
       <div class="slide-content text-center px-6 max-w-2xl mx-auto">
         <!-- Date Badge -->
         <div class="float-y inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass text-sm font-medium text-accent-200 mb-8">
@@ -394,42 +451,6 @@
     </div>
 
     <!-- ╔══════════════════════════════════════╗ -->
-    <!-- ║        SLIDE 1: COUNTDOWN            ║ -->
-    <!-- ╚══════════════════════════════════════╝ -->
-    <div class="slide" data-slide="1">
-      <div class="slide-content text-center px-6 max-w-3xl mx-auto">
-        <p class="text-accent-400/60 text-sm uppercase tracking-widest mb-3">⏳ Hitung Mundur</p>
-        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold gradient-text mb-3">
-          Hari Spesial Nissa
-        </h2>
-        <p class="text-accent-200/40 mb-10">14 Februari 2026 — Birthday & Valentine's Day</p>
-
-        <div class="grid grid-cols-4 gap-3 sm:gap-5 max-w-xl mx-auto mb-8">
-          <div class="cd-box rounded-2xl p-4 sm:p-6">
-            <div id="cd-days" class="text-3xl sm:text-4xl md:text-5xl font-bold text-accent-300 font-display">00</div>
-            <div class="text-xs text-accent-300/50 mt-1 uppercase tracking-widest">Hari</div>
-          </div>
-          <div class="cd-box rounded-2xl p-4 sm:p-6">
-            <div id="cd-hours" class="text-3xl sm:text-4xl md:text-5xl font-bold text-accent-300 font-display">00</div>
-            <div class="text-xs text-accent-300/50 mt-1 uppercase tracking-widest">Jam</div>
-          </div>
-          <div class="cd-box rounded-2xl p-4 sm:p-6">
-            <div id="cd-minutes" class="text-3xl sm:text-4xl md:text-5xl font-bold text-accent-300 font-display">00</div>
-            <div class="text-xs text-accent-300/50 mt-1 uppercase tracking-widest">Menit</div>
-          </div>
-          <div class="cd-box rounded-2xl p-4 sm:p-6">
-            <div id="cd-seconds" class="text-3xl sm:text-4xl md:text-5xl font-bold text-accent-300 font-display">00</div>
-            <div class="text-xs text-accent-300/50 mt-1 uppercase tracking-widest">Detik</div>
-          </div>
-        </div>
-
-        <div id="cd-celebration" class="hidden mb-6">
-          <p class="text-2xl font-script text-accent-300">🎉 Selamat Hari Spesial, Nissa Nursasi Fatika! 🎉</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- ╔══════════════════════════════════════╗ -->
     <!-- ║    SLIDE 2: GALLERY (MAIN PHOTO)     ║ -->
     <!-- ╚══════════════════════════════════════╝ -->
     <div class="slide" data-slide="2">
@@ -450,7 +471,7 @@
     </div>
 
     <!-- ╔══════════════════════════════════════╗ -->
-    <!-- ║    SLIDE 3: GALLERY (GRID)           ║ -->
+    <!-- ║     SLIDE 3: GALLERY (GRID)          ║ -->
     <!-- ╚══════════════════════════════════════╝ -->
     <div class="slide" data-slide="3">
       <div class="slide-content px-6 max-w-5xl mx-auto">
@@ -490,7 +511,7 @@
     </div>
 
     <!-- ╔══════════════════════════════════════╗ -->
-    <!-- ║        SLIDE 4: WISHES               ║ -->
+    <!-- ║         SLIDE 4: WISHES              ║ -->
     <!-- ╚══════════════════════════════════════╝ -->
     <div class="slide" data-slide="4">
       <div class="slide-content px-6 max-w-5xl mx-auto">
@@ -547,7 +568,7 @@
     </div>
 
     <!-- ╔══════════════════════════════════════╗ -->
-    <!-- ║        SLIDE 5: LOVE LETTER          ║ -->
+    <!-- ║       SLIDE 5: LOVE LETTER           ║ -->
     <!-- ╚══════════════════════════════════════╝ -->
     <div class="slide" data-slide="5">
       <div class="slide-content text-center px-6 max-w-2xl mx-auto">
@@ -605,7 +626,7 @@
   </main>
 
   <!-- ===== BOTTOM NAVIGATION BAR ===== -->
-  <div class="fixed bottom-0 left-0 right-0 z-50 px-3 sm:px-4 pb-4 sm:pb-5 pointer-events-none">
+  <div id="bottom-nav" class="fixed bottom-0 left-0 right-0 z-50 px-3 sm:px-4 pb-4 sm:pb-5 pointer-events-none">
     <div class="max-w-md mx-auto glass rounded-2xl px-2 sm:px-4 py-2.5 sm:py-3 flex items-center justify-between pointer-events-auto gap-2">
       <!-- Prev Button -->
       <div class="w-12 sm:w-24 flex-shrink-0 flex justify-start">
@@ -634,6 +655,25 @@
 
   <!-- ===== SCRIPTS ===== -->
   <script>
+    // ===== LOCK STATE =====
+    const targetDate = new Date('2026-02-14T00:00:00+07:00').getTime();
+    let isLocked = Date.now() < targetDate;
+    const MAX_LOCKED_SLIDE = 0;
+
+    // Hide lock message if already unlocked
+    if (!isLocked) {
+      const lockEl = document.getElementById('cd-locked');
+      if (lockEl) lockEl.classList.add('hidden');
+    }
+
+    // Hide navbar & progress bar when locked
+    const bottomNav = document.getElementById('bottom-nav');
+    const progressTrack = document.querySelector('.progress-track');
+    if (isLocked) {
+      bottomNav.style.display = 'none';
+      progressTrack.style.display = 'none';
+    }
+
     // ===== SLIDE ENGINE =====
     const slides = document.querySelectorAll('.slide');
     const totalSlides = slides.length;
@@ -658,7 +698,14 @@
     function updateUI() {
       // Dots
       const dots = dotsContainer.querySelectorAll('.dot');
-      dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+      dots.forEach((d, i) => {
+        d.classList.toggle('active', i === currentSlide);
+        if (isLocked && i > MAX_LOCKED_SLIDE) {
+          d.classList.add('locked');
+        } else {
+          d.classList.remove('locked');
+        }
+      });
 
       // Prev button
       if (currentSlide === 0) {
@@ -688,6 +735,8 @@
 
     function goToSlide(index) {
       if (index === currentSlide || isTransitioning || index < 0 || index >= totalSlides) return;
+      // Block navigation beyond countdown when locked
+      if (isLocked && index > MAX_LOCKED_SLIDE) return;
       isTransitioning = true;
 
       const dir = index > currentSlide ? 'left' : 'right';
@@ -737,12 +786,20 @@
     updateUI();
 
     // ===== COUNTDOWN =====
-    const targetDate = new Date('2026-02-14T00:00:00+07:00').getTime();
+    function unlockSite() {
+      isLocked = false;
+      document.getElementById('cd-locked').classList.add('hidden');
+      bottomNav.style.display = '';
+      progressTrack.style.display = '';
+      updateUI();
+    }
+
     function updateCD() {
       const diff = targetDate - Date.now();
       if (diff <= 0) {
         ['cd-days','cd-hours','cd-minutes','cd-seconds'].forEach(id => document.getElementById(id).textContent = '00');
         document.getElementById('cd-celebration').classList.remove('hidden');
+        if (isLocked) unlockSite();
         return;
       }
       document.getElementById('cd-days').textContent = String(Math.floor(diff / 864e5)).padStart(2, '0');
