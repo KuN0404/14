@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday & Valentine's Day — Nissa Nursasi Fatika 💜</title>
+  <meta name="description" content="Selamat Ulang Tahun & Valentine's Day untuk Nissa Nursasi Fatika." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💜</text></svg>" type="image/svg+xml" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            deep: '#0a0118',
+            surface: '#130a24',
+            card: '#1a0e2e',
+            accent: {
+              50: '#faf5ff', 100: '#f3e8ff', 200: '#e9d5ff', 300: '#d8b4fe',
+              400: '#c084fc', 500: '#a855f7', 600: '#9333ea', 700: '#7e22ce',
+              800: '#6b21a8', 900: '#581c87',
+            }
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'serif'],
+            body: ['Inter', 'sans-serif'],
+            script: ['Dancing Script', 'cursive'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; overflow: hidden; height: 100%; width: 100%; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0118;
+      color: #f3e8ff;
+    }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #7e22ce; border-radius: 4px; }
+
+    /* ===== SHIMMER TEXT ===== */
+    .text-shimmer {
+      background: linear-gradient(90deg, #d8b4fe, #fff, #c084fc, #fff, #d8b4fe);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 4s linear infinite;
+    }
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #e9d5ff, #fff, #c084fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ===== GLASS ===== */
+    .glass {
+      background: rgba(26, 14, 46, 0.6);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(168, 85, 247, 0.15);
+    }
+
+    /* ===== GLOW ===== */
+    .glow {
+      text-shadow: 0 0 30px rgba(168, 85, 247, 0.5), 0 0 60px rgba(168, 85, 247, 0.2);
+    }
+    .glow-box {
+      box-shadow: 0 0 30px rgba(168, 85, 247, 0.15), 0 0 60px rgba(126, 34, 206, 0.08);
+    }
+
+    /* ===== PARTICLES ===== */
+    .particle {
+      position: fixed; pointer-events: none; border-radius: 50%;
+      animation: floatUp linear infinite; z-index: 0;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) scale(1); opacity: 0; }
+      10% { opacity: 0.8; }
+      90% { opacity: 0.4; }
+      100% { transform: translateY(-10vh) scale(0); opacity: 0; }
+    }
+
+    .heart-float {
+      position: fixed; pointer-events: none; z-index: 0;
+      animation: heartDrift linear infinite; opacity: 0;
+    }
+    @keyframes heartDrift {
+      0% { transform: translateY(100vh) translateX(0) scale(0.5); opacity: 0; }
+      10% { opacity: 0.6; }
+      50% { transform: translateY(50vh) translateX(25px) scale(0.9); }
+      100% { transform: translateY(-10vh) translateX(-15px) scale(0.3); opacity: 0; }
+    }
+
+    /* ===== SLIDE TRANSITIONS ===== */
+    .slide {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      transform: scale(0.96) translateY(20px);
+    }
+    .slide.active {
+      opacity: 1; pointer-events: auto;
+      transform: scale(1) translateY(0);
+    }
+    .slide.exit-left {
+      opacity: 0; transform: scale(0.96) translateX(-40px);
+    }
+    .slide.exit-right {
+      opacity: 0; transform: scale(0.96) translateX(40px);
+    }
+
+    /* ===== SLIDE INNER CONTENT SCROLL ===== */
+    .slide-content {
+      max-height: 100%;
+      overflow-y: auto;
+      padding: 1rem 1rem 6rem 1rem;
+    }
+
+    /* ===== AURORA ===== */
+    .aurora-blob {
+      position: fixed; border-radius: 50%; filter: blur(120px);
+      opacity: 0.12; pointer-events: none; z-index: 0;
+      animation: auroraPulse 8s ease-in-out infinite alternate;
+    }
+    @keyframes auroraPulse {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(30px, -20px) scale(1.15); }
+    }
+
+    /* ===== NAV DOTS ===== */
+    .dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: rgba(168, 85, 247, 0.25);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+    .dot.active {
+      background: #a855f7;
+      box-shadow: 0 0 12px rgba(168, 85, 247, 0.6);
+      width: 28px; border-radius: 5px;
+    }
+    .dot:hover:not(.active) {
+      background: rgba(168, 85, 247, 0.5);
+    }
+
+    /* ===== BUTTONS ===== */
+    .nav-btn {
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      padding: 0.75rem 1.75rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      border: none;
+      outline: none;
+    }
+    .nav-btn-primary {
+      background: linear-gradient(135deg, #7e22ce, #a855f7);
+      color: white;
+      box-shadow: 0 4px 20px rgba(126, 34, 206, 0.3);
+    }
+    .nav-btn-primary:hover {
+      box-shadow: 0 6px 30px rgba(126, 34, 206, 0.5);
+      transform: translateY(-2px);
+    }
+    .nav-btn-ghost {
+      background: rgba(168, 85, 247, 0.1);
+      color: #d8b4fe;
+      border: 1px solid rgba(168, 85, 247, 0.2);
+    }
+    .nav-btn-ghost:hover {
+      background: rgba(168, 85, 247, 0.2);
+      border-color: rgba(168, 85, 247, 0.4);
+      transform: translateY(-2px);
+    }
+
+    /* ===== COUNTDOWN BOX ===== */
+    .cd-box {
+      background: rgba(88, 28, 135, 0.2);
+      border: 1px solid rgba(168, 85, 247, 0.25);
+      backdrop-filter: blur(10px);
+    }
+
+    /* ===== WISH CARD ===== */
+    .wish-card {
+      background: linear-gradient(135deg, rgba(88, 28, 135, 0.25), rgba(126, 34, 206, 0.08));
+      border: 1px solid rgba(168, 85, 247, 0.15);
+      backdrop-filter: blur(10px);
+      transition: all 0.4s;
+    }
+    .wish-card:hover {
+      border-color: rgba(168, 85, 247, 0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 15px 40px rgba(126, 34, 206, 0.15);
+    }
+
+    /* ===== IMAGE FIT ===== */
+    .img-frame {
+      position: relative; overflow: hidden;
+      border-radius: 1rem;
+      border: 2px solid rgba(168, 85, 247, 0.2);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .img-frame:hover {
+      border-color: rgba(168, 85, 247, 0.6);
+      box-shadow: 0 0 30px rgba(168, 85, 247, 0.2);
+    }
+    .img-frame img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .img-frame:hover img { transform: scale(1.05); }
+
+    /* ===== FLOATING BADGE ===== */
+    .float-y { animation: floatY 3s ease-in-out infinite; }
+    @keyframes floatY {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* ===== TYPEWRITER CURSOR ===== */
+    .cursor-blink::after {
+      content: '|'; animation: blink 0.8s step-end infinite; color: #a855f7;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    /* ===== PROGRESS BAR ===== */
+    .progress-track {
+      height: 3px;
+      background: rgba(168, 85, 247, 0.1);
+      position: fixed; top: 0; left: 0; right: 0; z-index: 60;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #7e22ce, #a855f7, #c084fc);
+      transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+    }
+
+    /* ===== KEYBOARD HINT ===== */
+    .kbd {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 2px 8px; border-radius: 4px; font-size: 0.7rem;
+      background: rgba(168, 85, 247, 0.1);
+      border: 1px solid rgba(168, 85, 247, 0.2);
+      color: #c084fc;
+    }
+
+    /* ===== MUSIC BUTTON ===== */
+    .music-btn {
+      position: fixed;
+      bottom: 1.75rem;
+      left: 1.5rem;
+      z-index: 60;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7e22ce, #a855f7);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+      box-shadow: 0 4px 20px rgba(126, 34, 206, 0.3);
+      color: white;
+    }
+    .music-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 30px rgba(126, 34, 206, 0.5);
+    }
+    .music-btn.playing {
+      animation: musicPulse 1.5s ease-in-out infinite;
+    }
+    .music-btn .bars {
+      display: flex; align-items: flex-end; gap: 2px; height: 18px;
+    }
+    .music-btn .bar {
+      width: 3px; background: white; border-radius: 2px;
+      transition: height 0.3s;
+    }
+    .music-btn.playing .bar {
+      animation: barDance 0.8s ease-in-out infinite alternate;
+    }
+    .music-btn.playing .bar:nth-child(1) { animation-delay: 0s; }
+    .music-btn.playing .bar:nth-child(2) { animation-delay: 0.15s; }
+    .music-btn.playing .bar:nth-child(3) { animation-delay: 0.3s; }
+    .music-btn.playing .bar:nth-child(4) { animation-delay: 0.45s; }
+    @keyframes barDance {
+      0% { height: 4px; }
+      100% { height: 18px; }
+    }
+    @keyframes musicPulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(126, 34, 206, 0.3); }
+      50% { box-shadow: 0 4px 35px rgba(168, 85, 247, 0.6); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== AMBIENT BACKGROUND ===== -->
+  <div class="aurora-blob" style="width: 500px; height: 500px; background: #7e22ce; top: -10%; left: -5%;"></div>
+  <div class="aurora-blob" style="width: 400px; height: 400px; background: #a855f7; bottom: -10%; right: -5%; animation-delay: -4s;"></div>
+  <div class="aurora-blob" style="width: 300px; height: 300px; background: #c084fc; top: 40%; left: 50%; animation-delay: -2s;"></div>
+  <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
+  <div id="hearts" class="fixed inset-0 pointer-events-none z-0"></div>
+
+  <!-- ===== PROGRESS BAR ===== -->
+  <div class="progress-track">
+    <div id="progress" class="progress-fill" style="width: 0%;"></div>
+  </div>
+
+  <!-- ===== MUSIC PLAYER ===== -->
+  <audio id="audio" src="./bgm.mp3" loop preload="auto"></audio>
+  <button id="music-btn" class="music-btn" aria-label="Toggle Music" title="Play / Pause Musik">
+    <div class="bars">
+      <div class="bar" style="height:6px;"></div>
+      <div class="bar" style="height:12px;"></div>
+      <div class="bar" style="height:8px;"></div>
+      <div class="bar" style="height:14px;"></div>
+    </div>
+  </button>
+
+  <!-- ===== SLIDES CONTAINER ===== -->
+  <main id="slides-container" class="relative w-full h-full z-10">
+
+    <!-- ╔══════════════════════════════════════╗ -->
+    <!-- ║          SLIDE 0: WELCOME            ║ -->
+    <!-- ╚══════════════════════════════════════╝ -->
+    <div class="slide active" data-slide="0">
+      <div class="slide-content text-center px-6 max-w-2xl mx-auto">
+        <!-- Date Badge -->
+        <div class="float-y inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass text-sm font-medium text-accent-200 mb-8">
+          <span>🎂</span>
+          <span>14 Februari 2026</span>
+          <span>💝</span>
+        </div>
+
+        <!-- Main Title -->
+        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-3">
+          <span class="text-shimmer">Happy Birthday</span>
+          <br />
+          <span class="text-accent-400 text-3xl sm:text-4xl">&</span>
+          <br />
+          <span class="gradient-text">Valentine's Day</span>
+        </h1>
+
+        <!-- Name -->
+        <p class="font-script text-5xl sm:text-6xl md:text-7xl text-accent-300 glow mt-6 mb-4">
+          Nissa Nursasi Fatika
+        </p>
+
+        <!-- Subtitle -->
+        <p class="text-base sm:text-lg text-accent-200/50 font-light max-w-lg mx-auto">
+          Her special day | when love and celebration become one 💜
+        </p>
+      </div>
+    </div>
+
+    <!-- ╔══════════════════════════════════════╗ -->
+    <!-- ║        SLIDE 1: COUNTDOWN            ║ -->
+    <!-- ╚══════════════════════════════════════╝ -->
+    <div class="slide" data-slide="1">
+      <div class="slide-content text-center px-6 max-w-3xl mx-auto">
+        <p class="text-accent-400/60 text-sm uppercase tracking-widest mb-3">⏳ Hitung Mundur</p>
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold gradient-text mb-3">
+          Hari Spesial Nissa
+        </h2>
+        <p class="text-accent-200/40 mb-10">14 Februari 2026 — Birthday & Valentine's Day</p>
+
+        <div class="grid grid-cols-4 gap-3 sm:gap-5 max-w-xl mx-auto mb-8">
+          <div class="cd-box rounded-2xl p-4 sm:p-6">
+            <div id="cd-days" class="text-3xl sm:text-4xl md:text-5xl font-bold text-accent-300 font-display">00</div>
+            <div class="text-xs text-accent-300/50 mt-1 uppercase tracking-widest">Hari</div>
+          </div>
+          <div class="cd-box rounded-2xl p-4 sm:p-6">
+            <div id="cd-hours" class="text-3xl sm:text-4xl md:text-5xl font-bold text-accent-300 font-display">00</div>
+            <div class="text-xs text-accent-300/50 mt-1 uppercase tracking-widest">Jam</div>
+          </div>
+          <div class="cd-box rounded-2xl p-4 sm:p-6">
+            <div id="cd-minutes" class="text-3xl sm:text-4xl md:text-5xl font-bold text-accent-300 font-display">00</div>
+            <div class="text-xs text-accent-300/50 mt-1 uppercase tracking-widest">Menit</div>
+          </div>
+          <div class="cd-box rounded-2xl p-4 sm:p-6">
+            <div id="cd-seconds" class="text-3xl sm:text-4xl md:text-5xl font-bold text-accent-300 font-display">00</div>
+            <div class="text-xs text-accent-300/50 mt-1 uppercase tracking-widest">Detik</div>
+          </div>
+        </div>
+
+        <div id="cd-celebration" class="hidden mb-6">
+          <p class="text-2xl font-script text-accent-300">🎉 Selamat Hari Spesial, Nissa Nursasi Fatika! 🎉</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ╔══════════════════════════════════════╗ -->
+    <!-- ║    SLIDE 2: GALLERY (MAIN PHOTO)     ║ -->
+    <!-- ╚══════════════════════════════════════╝ -->
+    <div class="slide" data-slide="2">
+      <div class="slide-content text-center px-6 max-w-4xl mx-auto">
+        <p class="text-accent-400/60 text-sm uppercase tracking-widest mb-3">📸 Galeri</p>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold gradient-text mb-8">
+          Momen Terindah
+        </h2>
+
+        <!-- Featured Image -->
+        <div class="img-frame aspect-[4/3] sm:aspect-[16/9] max-w-3xl mx-auto mb-6 glow-box">
+          <img src="./img/main.jpg"
+               alt="Foto Kita"
+               loading="lazy"
+               onerror="this.onerror=null;this.src='https://placehold.co/1200x675/1a0e2e/7e22ce?text=foto-utama.jpg&font=inter';" />
+        </div>
+      </div>
+    </div>
+
+    <!-- ╔══════════════════════════════════════╗ -->
+    <!-- ║    SLIDE 3: GALLERY (GRID)           ║ -->
+    <!-- ╚══════════════════════════════════════╝ -->
+    <div class="slide" data-slide="3">
+      <div class="slide-content px-6 max-w-5xl mx-auto">
+        <div class="text-center mb-6">
+          <p class="text-accent-400/60 text-sm uppercase tracking-widest mb-2">📸 Galeri</p>
+          <h2 class="font-display text-2xl sm:text-3xl font-bold gradient-text">Kenangan Bersama</h2>
+        </div>
+
+        <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+          <div class="img-frame aspect-[3/4]">
+            <img src="./img/2.jpg" alt="Kenangan 1" loading="lazy"
+                 onerror="this.onerror=null;this.src='https://placehold.co/450x600/1a0e2e/7e22ce?text=foto-1.jpg&font=inter';" />
+          </div>
+          <div class="img-frame aspect-[3/4]">
+            <img src="./img/4.jpeg" alt="Kenangan 2" loading="lazy"
+                 onerror="this.onerror=null;this.src='https://placehold.co/450x600/1a0e2e/7e22ce?text=foto-2.jpg&font=inter';" />
+          </div>
+          <div class="img-frame aspect-[3/4]">
+            <img src="./img/6.jpeg" alt="Kenangan 3" loading="lazy"
+                 onerror="this.onerror=null;this.src='https://placehold.co/450x600/1a0e2e/7e22ce?text=foto-3.jpg&font=inter';" />
+          </div>
+          <div class="img-frame aspect-[3/4]">
+            <img src="./img/3.jpeg" alt="Kenangan 4" loading="lazy"
+                 onerror="this.onerror=null;this.src='https://placehold.co/450x600/1a0e2e/7e22ce?text=foto-4.jpg&font=inter';" />
+          </div>
+          <div class="img-frame aspect-[3/4]">
+            <img src="./img/7.jpg" alt="Kenangan 5" loading="lazy"
+                 onerror="this.onerror=null;this.src='https://placehold.co/450x600/1a0e2e/7e22ce?text=foto-5.jpg&font=inter';" />
+          </div>
+          <div class="img-frame aspect-[3/4]">
+            <img src="./img/5.jpeg" alt="Kenangan 6" loading="lazy"
+                 onerror="this.onerror=null;this.src='https://placehold.co/450x600/1a0e2e/7e22ce?text=foto-6.jpg&font=inter';" />
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ╔══════════════════════════════════════╗ -->
+    <!-- ║        SLIDE 4: WISHES               ║ -->
+    <!-- ╚══════════════════════════════════════╝ -->
+    <div class="slide" data-slide="4">
+      <div class="slide-content px-6 max-w-5xl mx-auto">
+        <div class="text-center mb-8">
+          <p class="text-accent-400/60 text-sm uppercase tracking-widest mb-2">🌟 Ucapan</p>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold gradient-text">Ucapan & Doa</h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div class="wish-card rounded-2xl p-6">
+            <div class="text-3xl mb-3">🎂</div>
+            <h3 class="font-display text-lg font-bold text-accent-200 mb-2">Selamat Ulang Tahun!</h3>
+            <p class="text-accent-300/60 text-sm leading-relaxed">
+              Semoga di usia baru ini, semua mimpi dan harapanmu terwujud. Tetap jadi versi terbaik dari dirimu, Sayang! 💜
+            </p>
+          </div>
+          <div class="wish-card rounded-2xl p-6">
+            <div class="text-3xl mb-3">💝</div>
+            <h3 class="font-display text-lg font-bold text-accent-200 mb-2">Happy Valentine's!</h3>
+            <p class="text-accent-300/60 text-sm leading-relaxed">
+              Hari ini adalah bukti bahwa cinta dan kebahagiaan bisa datang bersamaan. Kamu layak mendapatkan yang terbaik.
+            </p>
+          </div>
+          <div class="wish-card rounded-2xl p-6">
+            <div class="text-3xl mb-3">✨</div>
+            <h3 class="font-display text-lg font-bold text-accent-200 mb-2">Doa Terbaik</h3>
+            <p class="text-accent-300/60 text-sm leading-relaxed">
+              Semoga selalu diberikan kesehatan, kebahagiaan, dan dikelilingi orang-orang yang tulus menyayangimu. Aamiin.
+            </p>
+          </div>
+          <div class="wish-card rounded-2xl p-6">
+            <div class="text-3xl mb-3">🌹</div>
+            <h3 class="font-display text-lg font-bold text-accent-200 mb-2">Untuk yang Istimewa</h3>
+            <p class="text-accent-300/60 text-sm leading-relaxed">
+              Kamu adalah alasan kenapa hari ini begitu berarti. Terima kasih telah mewarnai dunia dengan senyummu.
+            </p>
+          </div>
+          <div class="wish-card rounded-2xl p-6">
+            <div class="text-3xl mb-3">💫</div>
+            <h3 class="font-display text-lg font-bold text-accent-200 mb-2">Semangat Baru</h3>
+            <p class="text-accent-300/60 text-sm leading-relaxed">
+              Tahun baru, semangat baru. Semoga langkahmu selalu dipermudah dan diberkahi dalam setiap perjalanan.
+            </p>
+          </div>
+          <div class="wish-card rounded-2xl p-6">
+            <div class="text-3xl mb-3">🎁</div>
+            <h3 class="font-display text-lg font-bold text-accent-200 mb-2">Hadiah Terindah</h3>
+            <p class="text-accent-300/60 text-sm leading-relaxed">
+              Hadiah terindah bukanlah yang dibungkus rapi, tapi kehadiran orang-orang yang menyayangimu tulus. 💜
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ╔══════════════════════════════════════╗ -->
+    <!-- ║        SLIDE 5: LOVE LETTER          ║ -->
+    <!-- ╚══════════════════════════════════════╝ -->
+    <div class="slide" data-slide="5">
+      <div class="slide-content text-center px-6 max-w-2xl mx-auto">
+        <p class="text-accent-400/60 text-sm uppercase tracking-widest mb-3">💌 Surat Kecil</p>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold gradient-text mb-8">Dari Hati yang Tulus</h2>
+
+        <div class="glass rounded-3xl p-8 sm:p-10 text-left relative glow-box">
+          <div class="absolute top-3 right-5 text-accent-600/20 text-5xl font-script select-none">"</div>
+
+          <p class="font-script text-2xl text-accent-300 mb-5">Dear Nissa Nursasi Fatika,</p>
+
+          <div class="space-y-4 text-accent-200/60 leading-relaxed text-sm sm:text-base">
+            <p>
+              Di hari yang sangat istimewa ini di mana ulang tahunmu bertepatan dengan hari kasih sayang aku ingin kamu tahu bahwa kehadiranmu adalah hadiah terindah bagi dunia ini.
+            </p>
+            <p>
+              Senyummu mampu mencerahkan hari tergelap. Tawamu adalah melodi terindah yang pernah ada. Dan hatimu yang lembut adalah bukti bahwa kebaikan masih ada di dunia ini.
+            </p>
+            <p>
+              Semoga di ulang tahunmu ini, kamu menemukan lebih banyak alasan untuk tersenyum, lebih banyak kebahagiaan yang tak terduga, dan lebih banyak cinta dari orang-orang di sekitarmu.
+            </p>
+            <p>
+              Selamat ulang tahun dan selamat Hari Valentine, Sayang. Tetaplah menjadi dirimu yang luar biasa.
+            </p>
+          </div>
+
+          <div class="text-right mt-6">
+            <p class="font-script text-xl text-accent-300">Dengan penuh cinta, Faris</p>
+            <p class="font-script text-2xl text-accent-400 mt-1">💜</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ╔══════════════════════════════════════╗ -->
+    <!-- ║        SLIDE 6: FINALE               ║ -->
+    <!-- ╚══════════════════════════════════════╝ -->
+    <div class="slide" data-slide="6">
+      <div class="slide-content text-center px-6 max-w-2xl mx-auto">
+        <!-- Profile Image -->
+        <div class="img-frame w-36 h-36 sm:w-44 sm:h-44 rounded-full mx-auto mb-8 glow-box overflow-hidden border-2 border-accent-500/30">
+          <img src="./img/profil.jpg" alt="Nissa Nursasi Fatika" class="rounded-full" loading="lazy"
+               onerror="this.onerror=null;this.src='https://placehold.co/400x400/1a0e2e/7e22ce?text=profil.jpg&font=inter';" />
+        </div>
+
+        <p class="font-script text-5xl sm:text-6xl text-accent-300 glow mb-4">Nissa Nursasi Fatika</p>
+
+        <p class="text-accent-200/50 text-lg mb-2">🎂 Happy Birthday & Happy Valentine's Day 💝</p>
+        <p class="text-accent-400/30 text-sm mb-10">14 Februari 2026</p>
+
+        <p class="mt-12 text-accent-400/20 text-xs">Made with 💜 for Nissa Nursasi Fatika</p>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ===== BOTTOM NAVIGATION BAR ===== -->
+  <div class="fixed bottom-0 left-0 right-0 z-50 px-3 sm:px-4 pb-4 sm:pb-5 pointer-events-none">
+    <div class="max-w-md mx-auto glass rounded-2xl px-2 sm:px-4 py-2.5 sm:py-3 flex items-center justify-between pointer-events-auto gap-2">
+      <!-- Prev Button -->
+      <div class="w-12 sm:w-24 flex-shrink-0 flex justify-start">
+        <button id="btn-prev" onclick="prevSlide()" class="nav-btn nav-btn-ghost text-xs sm:text-sm px-2.5 sm:px-4 py-1.5 sm:py-2 opacity-0 invisible transition-all" aria-label="Previous">
+          <i data-lucide="chevron-left" class="w-4 h-4"></i>
+          <span class="hidden sm:inline">Prev</span>
+        </button>
+      </div>
+
+      <!-- Dots -->
+      <div id="dots" class="flex items-center gap-1.5 sm:gap-2 flex-shrink-0"></div>
+
+      <!-- Next / Restart Button -->
+      <div class="w-12 sm:w-24 flex-shrink-0 flex justify-end relative">
+        <button id="btn-next" onclick="nextSlide()" class="nav-btn nav-btn-primary text-xs sm:text-sm px-2.5 sm:px-4 py-1.5 sm:py-2 transition-all" aria-label="Next">
+          <span class="hidden sm:inline">Next</span>
+          <i data-lucide="chevron-right" class="w-4 h-4"></i>
+        </button>
+        <button id="btn-restart" onclick="goToSlide(0)" class="nav-btn nav-btn-primary text-xs sm:text-sm px-2.5 sm:px-4 py-1.5 sm:py-2 opacity-0 invisible transition-all absolute right-0" aria-label="Restart">
+          <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+          <span class="hidden sm:inline">Awal</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    // ===== SLIDE ENGINE =====
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    let currentSlide = 0;
+    let isTransitioning = false;
+
+    const dotsContainer = document.getElementById('dots');
+    const btnPrev = document.getElementById('btn-prev');
+    const btnNext = document.getElementById('btn-next');
+    const btnRestart = document.getElementById('btn-restart');
+    const progressBar = document.getElementById('progress');
+
+    // Create dots
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goToSlide(i));
+      dotsContainer.appendChild(dot);
+    }
+
+    function updateUI() {
+      // Dots
+      const dots = dotsContainer.querySelectorAll('.dot');
+      dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+
+      // Prev button
+      if (currentSlide === 0) {
+        btnPrev.classList.add('opacity-0', 'invisible');
+      } else {
+        btnPrev.classList.remove('opacity-0', 'invisible');
+      }
+
+      // Next button — hide on last slide
+      if (currentSlide === totalSlides - 1) {
+        btnNext.classList.add('opacity-0', 'invisible');
+      } else {
+        btnNext.classList.remove('opacity-0', 'invisible');
+      }
+
+      // Restart button — show only on last slide
+      if (currentSlide === totalSlides - 1) {
+        btnRestart.classList.remove('opacity-0', 'invisible');
+      } else {
+        btnRestart.classList.add('opacity-0', 'invisible');
+      }
+
+      // Progress bar
+      const pct = ((currentSlide) / (totalSlides - 1)) * 100;
+      progressBar.style.width = pct + '%';
+    }
+
+    function goToSlide(index) {
+      if (index === currentSlide || isTransitioning || index < 0 || index >= totalSlides) return;
+      isTransitioning = true;
+
+      const dir = index > currentSlide ? 'left' : 'right';
+      const oldSlide = slides[currentSlide];
+      const newSlide = slides[index];
+
+      // Exit old
+      oldSlide.classList.remove('active');
+      oldSlide.classList.add(dir === 'left' ? 'exit-left' : 'exit-right');
+
+      // Reset new slide scroll
+      const content = newSlide.querySelector('.slide-content');
+      if (content) content.scrollTop = 0;
+
+      // Enter new
+      setTimeout(() => {
+        newSlide.classList.add('active');
+        oldSlide.classList.remove('exit-left', 'exit-right');
+        currentSlide = index;
+        updateUI();
+        isTransitioning = false;
+      }, 150);
+    }
+
+    function nextSlide() { goToSlide(currentSlide + 1); }
+    function prevSlide() { goToSlide(currentSlide - 1); }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); nextSlide(); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
+    });
+
+    // Touch/swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+    document.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+    document.addEventListener('touchend', e => {
+      touchEndX = e.changedTouches[0].screenX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 60) {
+        if (diff > 0) nextSlide();
+        else prevSlide();
+      }
+    }, { passive: true });
+
+    updateUI();
+
+    // ===== COUNTDOWN =====
+    const targetDate = new Date('2026-02-14T00:00:00+07:00').getTime();
+    function updateCD() {
+      const diff = targetDate - Date.now();
+      if (diff <= 0) {
+        ['cd-days','cd-hours','cd-minutes','cd-seconds'].forEach(id => document.getElementById(id).textContent = '00');
+        document.getElementById('cd-celebration').classList.remove('hidden');
+        return;
+      }
+      document.getElementById('cd-days').textContent = String(Math.floor(diff / 864e5)).padStart(2, '0');
+      document.getElementById('cd-hours').textContent = String(Math.floor((diff % 864e5) / 36e5)).padStart(2, '0');
+      document.getElementById('cd-minutes').textContent = String(Math.floor((diff % 36e5) / 6e4)).padStart(2, '0');
+      document.getElementById('cd-seconds').textContent = String(Math.floor((diff % 6e4) / 1e3)).padStart(2, '0');
+    }
+    updateCD();
+    setInterval(updateCD, 1000);
+
+    // ===== PARTICLES =====
+    function spawnParticle() {
+      const el = document.createElement('div');
+      el.classList.add('particle');
+      const s = Math.random() * 5 + 2;
+      const colors = ['rgba(168,85,247,0.5)','rgba(192,132,252,0.4)','rgba(216,180,254,0.35)','rgba(126,34,206,0.45)'];
+      el.style.width = s + 'px'; el.style.height = s + 'px';
+      el.style.left = Math.random() * 100 + '%';
+      el.style.background = colors[Math.floor(Math.random() * colors.length)];
+      el.style.animationDuration = (Math.random() * 12 + 10) + 's';
+      el.style.animationDelay = Math.random() * 4 + 's';
+      document.getElementById('particles').appendChild(el);
+      setTimeout(() => el.remove(), 24000);
+    }
+    setInterval(spawnParticle, 1000);
+    for (let i = 0; i < 10; i++) setTimeout(spawnParticle, i * 300);
+
+    // ===== HEARTS =====
+    function spawnHeart() {
+      const el = document.createElement('div');
+      el.classList.add('heart-float');
+      el.innerHTML = ['💜','💕','✨','💝','🤍'][Math.floor(Math.random() * 5)];
+      el.style.fontSize = (Math.random() * 16 + 12) + 'px';
+      el.style.left = Math.random() * 100 + '%';
+      el.style.animationDuration = (Math.random() * 10 + 10) + 's';
+      el.style.animationDelay = Math.random() * 3 + 's';
+      document.getElementById('hearts').appendChild(el);
+      setTimeout(() => el.remove(), 22000);
+    }
+    setInterval(spawnHeart, 2500);
+    for (let i = 0; i < 5; i++) setTimeout(spawnHeart, i * 600);
+
+    // ===== CONFETTI ON FINAL SLIDE =====
+    function burstConfetti() {
+      for (let i = 0; i < 25; i++) {
+        setTimeout(() => {
+          const c = document.createElement('div');
+          c.style.cssText = 'position:fixed;z-index:100;pointer-events:none;transition:all 2s cubic-bezier(0.25,0.46,0.45,0.94);opacity:1;';
+          c.style.left = (50 + (Math.random() - 0.5) * 50) + '%';
+          c.style.top = '45%';
+          c.style.fontSize = (Math.random() * 14 + 10) + 'px';
+          c.innerHTML = ['💜','🎉','✨','🎂','💝','🎊','🌟'][Math.floor(Math.random() * 7)];
+          document.body.appendChild(c);
+          requestAnimationFrame(() => {
+            c.style.transform = `translate(${(Math.random()-0.5)*280}px, ${Math.random()*350+80}px) rotate(${Math.random()*720}deg)`;
+            c.style.opacity = '0';
+          });
+          setTimeout(() => c.remove(), 2500);
+        }, i * 50);
+      }
+    }
+
+    // Watch for final slide
+    const origGoToSlide = goToSlide;
+    // Override to add confetti on last slide
+    const _observer = new MutationObserver(() => {
+      if (slides[totalSlides - 1].classList.contains('active')) {
+        burstConfetti();
+        _observer.disconnect();
+      }
+    });
+    _observer.observe(slides[totalSlides - 1], { attributes: true, attributeFilter: ['class'] });
+
+    // ===== DOUBLE-CLICK HEARTS =====
+    document.addEventListener('dblclick', e => {
+      for (let i = 0; i < 8; i++) {
+        setTimeout(() => {
+          const h = document.createElement('div');
+          h.style.cssText = `position:fixed;z-index:100;pointer-events:none;left:${e.clientX}px;top:${e.clientY}px;font-size:${Math.random()*18+12}px;transition:all 1.2s ease-out;opacity:1;`;
+          h.innerHTML = ['💜','💝','💗','✨'][Math.floor(Math.random() * 4)];
+          document.body.appendChild(h);
+          requestAnimationFrame(() => {
+            h.style.transform = `translate(${(Math.random()-0.5)*160}px, ${-Math.random()*160-40}px) scale(${Math.random()+0.5})`;
+            h.style.opacity = '0';
+          });
+          setTimeout(() => h.remove(), 1500);
+        }, i * 60);
+      }
+    });
+
+    // ===== MUSIC TOGGLE =====
+    const audio = document.getElementById('audio');
+    const musicBtn = document.getElementById('music-btn');
+    let isPlaying = false;
+
+    musicBtn.addEventListener('click', () => {
+      if (isPlaying) {
+        audio.pause();
+        musicBtn.classList.remove('playing');
+      } else {
+        audio.play().catch(() => {});
+        musicBtn.classList.add('playing');
+      }
+      isPlaying = !isPlaying;
+    });
+
+    // ===== INIT LUCIDE =====
+    lucide.createIcons();
+  </script>
+</body>
+</html>
